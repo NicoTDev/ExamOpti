@@ -47,3 +47,12 @@ class Daily:
     Warehouses: list[Warehouse]
     Legos: list[LegoType]
 
+
+class IdCoords:
+    Id: int
+    Coordinates: Coords
+
+
+class MapData:
+    Customers: list[IdCoords]
+    Warehouses: list[IdCoords]
