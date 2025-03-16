@@ -1,33 +1,31 @@
-from typing import TypedDict
-
-class TeamCreds(TypedDict):
+class TeamCreds:
     teamName: str
     password: str
 
 
-class SolutionApiModel(TypedDict):
+class SolutionApiModel:
     credentials: TeamCreds
     dayNumber: int
     steps: list[str]
 
 
-class TruckDaily(TypedDict):
+class TruckDaily:
     Id: int
     AffiliatedWarehouseId: int
     Capacity: int
 
 
-class LegosQty(TypedDict):
+class LegosQty:
     LegoId: int
     Quantity: int
 
 
-class CustomerDaily(TypedDict):
+class CustomerDaily:
     Id: int
     Orders: list[LegosQty]
 
 
-class LegoType(TypedDict):
+class LegoType:
     Id: int
     Weight: int
 
@@ -37,9 +35,15 @@ class Warehouse:
     Stock: list[LegosQty]
 
 
-class Daily(TypedDict):
+class Coords:
+    X: int
+    Y: int
+
+
+class Daily:
     DayNumber: int
     Trucks: list[TruckDaily]
     Customers: list[CustomerDaily]
     Warehouses: list[Warehouse]
     Legos: list[LegoType]
+
