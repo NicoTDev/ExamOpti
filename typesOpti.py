@@ -56,3 +56,16 @@ class IdCoords:
 class MapData:
     Customers: list[IdCoords]
     Warehouses: list[IdCoords]
+
+
+def load_step(truck: Truck, qty: int, lego: int) -> str:
+    return f"load truck={truck.id} quantity={qty} lego={lego}"
+
+def move_to_customer_step(truck: Truck, client: Client) -> str:
+    return f"move_to_customer truck={truck.id} customer={client.id}"
+
+def deliver_step(truck: Truck, qty: int, lego: int) -> str:
+    return f"deliver truck={truck.id} quantity={qty} lego={lego}"
+
+def move_to_warehouse_step(truck: Truck, entrepot: Entrepot) -> str:
+    return f"move_to_warehouse truck={truck.id} warehouse={entrepot.id}"
