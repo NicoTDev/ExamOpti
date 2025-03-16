@@ -74,3 +74,5 @@ def deliver_step(truck: Truck, qty: int, lego: int) -> str:
 
 def move_to_warehouse_step(truck: Truck, entrepot: Entrepot) -> str:
     return f"move_to_warehouse truck={truck.id} warehouse={entrepot.id}"
+
+

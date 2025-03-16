@@ -1,3 +1,5 @@
 class Entrepot:
-    def __init__(self, id:int, coordonnate:int):
+    def __init__(self, id:int, stock:list, position:int):
         self.id = id
+        self.stock = stock
+        self.position = position

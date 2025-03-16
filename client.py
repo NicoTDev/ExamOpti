@@ -6,3 +6,8 @@ class Client:
         self.id = id
         self.orders = orders
         self.position = position
+
+
+
+    def findNearestClient(self, position):
+        pass

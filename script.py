@@ -1,5 +1,8 @@
 import requests
+
+from client import Client
 from truck import Truck
+from entrepot import Entrepot
 import json
 
 from typesOpti import Daily
@@ -12,21 +15,26 @@ trucks = []
 
 def start_day(dayNumber:int):
     jsonJour = json.load(open(f"day_{dayNumber}.json"))
+    populateEntrepots(jsonJour["Warehouses"])
     populateTrucks(jsonJour["Trucks"])
+    populateClients(jsonJour["Customers"])
+
+
+def populateEntrepots(p_entrepots):
+    for entrepot in p_entrepots:
+        entrepots.append(Entrepot(entrepot["Id"], entrepot["Stock"], LASBRICKAS["Warehouses"][entrepot["Id"]]))
 
 
 def populateTrucks(p_trucks):
     for truck in p_trucks:
         trucks.append(Truck(truck["Id"],truck["AffiliatedWarehouseId"], truck["Capacity"]))
-def populateClients(clients):
-    for client in clients:
-        pass
-def populateEntrepots(entrepots):
-    pass
-steps = ["load truck=0 quantity=1 lego=0",
-         "move_to_customer truck=0 customer=0",
-         "deliver truck=0 quantity=1 lego=0",
-         "move_to_warehouse truck=0 warehouse=0"]
+def populateClients(p_clients):
+    for client in p_clients:
+        clients.append(Client(client["Id"], client["Orders"], LASBRICKAS["Customers"][client["Id"]]))
+
+
+
+steps = []
 body = """
 {
   "credentials": {
@@ -39,6 +47,6 @@ body = """
   """
 
 start_day(2)
-print("bonne journée!")
+print(entrepots)
 
 
