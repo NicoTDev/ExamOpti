@@ -1,46 +1,49 @@
-class TeamCreds:
+from typing import TypedDict
+
+
+class TeamCreds(TypedDict):
     teamName: str
     password: str
 
 
-class SolutionApiModel:
+class SolutionApiModel(TypedDict):
     credentials: TeamCreds
     dayNumber: int
     steps: list[str]
 
 
-class TruckDaily:
+class TruckDaily(TypedDict):
     Id: int
     AffiliatedWarehouseId: int
     Capacity: int
 
 
-class LegosQty:
+class LegosQty(TypedDict):
     LegoId: int
     Quantity: int
 
 
-class CustomerDaily:
+class CustomerDaily(TypedDict):
     Id: int
     Orders: list[LegosQty]
 
 
-class LegoType:
+class LegoType(TypedDict):
     Id: int
     Weight: int
 
 
-class Warehouse:
+class Warehouse(TypedDict):
     Id: int
     Stock: list[LegosQty]
 
 
-class Coords:
+class Coords(TypedDict):
     X: int
     Y: int
 
 
-class Daily:
+class Daily(TypedDict):
     DayNumber: int
     Trucks: list[TruckDaily]
     Customers: list[CustomerDaily]
@@ -48,12 +51,12 @@ class Daily:
     Legos: list[LegoType]
 
 
-class IdCoords:
+class IdCoords(TypedDict):
     Id: int
     Coordinates: Coords
 
 
-class MapData:
+class MapData(TypedDict):
     Customers: list[IdCoords]
     Warehouses: list[IdCoords]
 
