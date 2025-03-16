@@ -1,5 +1,7 @@
 from typing import TypedDict
-
+from truck import Truck
+from entrepot import Entrepot
+from client import Client
 
 class TeamCreds(TypedDict):
     teamName: str
