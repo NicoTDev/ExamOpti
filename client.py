@@ -10,13 +10,25 @@ class Client:
     @staticmethod
     def findLongestClientFromEntrepot(clients, position):
         bestClients = clients[0]
-        bestDistance = -1
+        bestDistance = ((clients[0].position['X']-position["X"])**2+(clients[0].position['X']-position["X"])**2)**0.5
         for client in clients:
             distance = ((client.position['X']-position["X"])**2+(client.position['X']-position["X"])**2)**0.5
             if distance > bestDistance:
-                bestClients = clients
+                bestClients = client
                 bestDistance = distance
+        return bestClients
 
+
+    @staticmethod
+    def findNearestClientFromEntrepot(clients, position):
+        bestClients = clients[0]
+        bestDistance = ((clients[0].position['X']-position["X"])**2+(clients[0].position['X']-position["X"])**2)**0.5
+        for client in clients:
+            distance = ((client.position['X']-position["X"])**2+(client.position['X']-position["X"])**2)**0.5
+            if distance < bestDistance:
+                bestClients = client
+                bestDistance = distance
+        return bestClients
 
 
 

@@ -22,15 +22,14 @@ def start_day(dayNumber:int):
 
 def populateEntrepots(p_entrepots):
     for entrepot in p_entrepots:
-        entrepots.append(Entrepot(entrepot["Id"], entrepot["Stock"], LASBRICKAS["Warehouses"][entrepot["Id"]]))
-
+        entrepots.append(Entrepot(entrepot["Id"], entrepot["Stock"], LASBRICKAS["Warehouses"][entrepot["Id"]]["Coordinates"]))
 
 def populateTrucks(p_trucks):
     for truck in p_trucks:
         trucks.append(Truck(truck["Id"],truck["AffiliatedWarehouseId"], truck["Capacity"]))
 def populateClients(p_clients):
     for client in p_clients:
-        clients.append(Client(client["Id"], client["Orders"], LASBRICKAS["Customers"][client["Id"]]))
+        clients.append(Client(client["Id"], client["Orders"], LASBRICKAS["Customers"][client["Id"]]["Coordinates"]))
 
 
 
@@ -47,6 +46,11 @@ body = """
   """
 
 start_day(2)
-print(entrepots)
+def bruteForce():
+    #pour tous les clients
+    for client in clients:
+        #on charge sa commande
+        pass
 
 
+bruteForce()
