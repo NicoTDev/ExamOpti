@@ -1,4 +1,4 @@
-from types import LegosQty
+from typesOpti import LegosQty
 
 
 class Clients:
